@@ -1,2 +1,27 @@
 ---
-# tasks file for mx-service
+- name: Upload python module
+  copy: src=ConfigureMXService.py dest=/tmp/ConfigureMXService.py
+  
+- name: configure mx service  
+  configure_mxservice: 
+    service_name: "{{service_name}}"    
+    port_number: "{{service_port}}"
+#    action: "start"
+    action: "stop"
+  register: result
+
+- debug: var=result 
+
+- name: Upload python module
+  copy: src=PersistenceMXService.py dest=/tmp/PersistenceMXService.py
+  
+- name: configure persistence mx service  
+  persistence_mxservice: 
+    process_name: "{{process_name}}"
+    service_name: "{{persitence_service_name}}"    
+    port_number: "{{persitence_service_port}}"
+#    action: "start"
+    action: "stop"
+  register: result
+  
+- debug: var=result 
