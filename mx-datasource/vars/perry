@@ -1,0 +1,6 @@
+---
+# Provide the service name & port number.
+
+service_name: mxsv
+service_port: 12345
+datasource_name: manageablity

@@ -1,0 +1,14 @@
+---
+- name: Upload python module
+  copy: src=ConfigureDatasource.py dest=/tmp/ConfigureDatasource.py
+  
+- name: configure datasource  
+  configure_ds: 
+    service_name: "{{service_name}}"    
+    datasource_name: "{{datasource_name}}"
+#    action: "delete"
+    action: "add"
+  register: result
+
+- debug: var=result 
+

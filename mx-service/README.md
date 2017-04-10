@@ -1,38 +1,38 @@
-Role Name
-=========
+> CONFIGURE SQL/MX SERVICE
 
-A brief description of the role goes here.
+  To start or stop SQL/MX MXCS service with the specified service name and port number. Optionally, user can choose to provide the
+  MXOAS guardian location.
 
-Requirements
-------------
+Options (= is mandatory):
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+= action
+        To determine whether to start or stop the service. (Choices: start, stop) [Default: start]
 
-Role Variables
---------------
+- mxoas_location
+        Guardian location of the MXCS objects. [Default: $system.zmxodbc.mxoas.]
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+= port_number
+        MXCS service will be started with this name.
 
-Dependencies
-------------
+= service_name
+        MXCS Service will be started with this name.
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+Requirements:  Ansible must be installed, NonStop server with proper user credentials
 
-Example Playbook
-----------------
+EXAMPLES:
+- name: start MX Service
+  configure_mxservice:    
+    service_name: "mxsv1"    
+    port_number: "18650"
+    action: "start"
+  register: result
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+RETURN VALUES:
+dest:
+    description: starts/stops SQL/MX service.
+    returned: success
+    type: string
+    sample: none
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
 
-License
--------
-
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+MAINTAINERS: senthilt
