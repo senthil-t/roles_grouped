@@ -1,9 +1,9 @@
 ---
 - name: Upload python module
-  copy: src=ConfigureDatasource.py dest=/tmp/ConfigureDatasource.py
+  copy: src=ConfigureMXDatasource.py dest=/tmp/ConfigureMXDatasource.py
   
 - name: configure datasource  
-  configure_ds: 
+  configure_datasource: 
     service_name: "{{service_name}}"    
     datasource_name: "{{datasource_name}}"
 #    action: "delete"

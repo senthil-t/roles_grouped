@@ -26,7 +26,7 @@ class MXService(object):
         self.action = params['action']
         self.mxoasLocation = params['mxoas_location']
         
-    def __serve_request(self):
+    def serve_request(self):
         
         if self.action == "start":
             return self.__start_service();

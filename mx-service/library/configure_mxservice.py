@@ -83,7 +83,7 @@ def main():
 
     module = AnsibleModule(argument_spec=fields)
     mxservice = MXService(module.params)
-    result =  mxservice.serveRequest()
+    result =  mxservice.serve_request()
     
     #parse the output.
     has_changed = result['result'] == 'success'  

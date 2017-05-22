@@ -12,7 +12,7 @@ import subprocess
 import json
 import time
 
-class MXPersistenceService(object,params):
+class MXPersistenceService(object):
     '''
     This module starts a MXOAS Service.
     command to inovke this module is
@@ -26,6 +26,7 @@ class MXPersistenceService(object,params):
         self.serviceName = params['service_name']
         self.servicePort = params['port_number']
         self.action = params['action']
+        self.processName = params['process_name']
     
     def serve_request(self):                
         if self.action == "start":

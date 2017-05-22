@@ -194,7 +194,7 @@ def main():
     module = AnsibleModule(argument_spec=fields)
     
     modifyDatasource = ModifyDatasource(module.params)
-    result = modifyDatasource.serveRequest()
+    result = modifyDatasource.serve_request()
     
     #parse the output.
     has_changed = result['result'] == 'success'  

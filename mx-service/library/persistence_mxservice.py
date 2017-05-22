@@ -55,7 +55,8 @@ options:
 
 EXAMPLES = '''
 - name: start MX Service
-  persistence_mxservice:    
+  persistence_mxservice:
+    process_name: "dbmxo1"    
     service_name: "mxsv1"    
     port_number: "18650"
     action: "start"
@@ -93,7 +94,7 @@ def main():
     module = AnsibleModule(argument_spec=fields)    
     
     mxservice = MXPersistenceService(module.params)
-    result = mxservice
+    result = mxservice.serve_request()
     
     #parse the output.
     has_changed = result['result'] == 'success'  

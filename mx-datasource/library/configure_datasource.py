@@ -220,7 +220,7 @@ def main():
 
     module = AnsibleModule(argument_spec=fields)
     configureDatasource = ConfigureDatasource(module.params)
-    result = configureDatasource.serveRequest()
+    result = configureDatasource.serve_request()
     
     #parse the output.
     has_changed = result['result'] == 'success'  
