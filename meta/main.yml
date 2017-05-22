@@ -2,7 +2,7 @@
 
 # pull down NonStop roles
 dependencies:
-- src: https://github.com/senthil-t/NonStop-Roles
-  name: NonStop-Roles
+- src: https://github.com/senthil-t/roles
+  name: roles
   version: master
   scm: git
